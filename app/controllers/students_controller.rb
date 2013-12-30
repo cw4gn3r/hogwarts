@@ -4,13 +4,13 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @sudent = params[:student]
+    @student = params[:student]
   end
 
   def new
-    new_student = Student.new(parmas)
+    new_student = Student.new(params)
     student = Student.create
     house << student
-    redirect to 'idnex'
+    redirect_to 'index'
   end
 end
