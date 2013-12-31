@@ -8,9 +8,17 @@ class StudentsController < ApplicationController
   end
 
   def new
-    new_student = Student.new(params)
-    student = Student.create
-    house << student
-    redirect_to 'index'
+    @student = Student.new
+  end
+
+  def create
+    @student = Student.new(params[:student])
+    @student.house = House.first
+
+    if @student.save
+      redirect_to students_path
+    else
+      render 'new'
+    end
   end
 end
