@@ -1,9 +1,10 @@
-<% @house.name %>
-<ul>
-<% @house.students.each do |student| %>
-  <li><%= student.name %></li>
-<% end %>
-</ul>
-<% if @house.students.empty? %>
+<h1><%= @house.name %></h1>
+<% if @house.students.any? %>
+  <ul>
+  <% @house.students.each do |student| %>
+    <li><%= student.name %></li>
+  <% end %>
+  </ul>
+<% else %>
   No students found!
 <% end %>
